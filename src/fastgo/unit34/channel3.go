@@ -9,6 +9,7 @@ package main
 import (
 	"fmt"
 	"runtime"
+	"time"
 )
 
 func main() {
@@ -21,6 +22,7 @@ func main() {
 		for i := 0; i < count; i++ {
 			done <- true // 채널에 true를 보냄, 버퍼가 가득 차면 대기 // 반복문의 변수 출력
 			fmt.Println("고루틴: ", i)
+			time.Sleep(100 * time.Millisecond)
 		}
 	}()
 
